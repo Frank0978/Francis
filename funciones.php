@@ -23,7 +23,7 @@ function introducirFichas() {
 }
 
 function fichasAlrededor($ficha): array {
-    $fichasAlrededor = [];
+    $fichasAlrededor = []; 
     for ($f = -1; $f < 2; $f++) {
         for ($c = -1; $c < 2; $c++) {
             array_push($fichasAlrededor, array($ficha[0] + $f, $ficha[1] + $c));

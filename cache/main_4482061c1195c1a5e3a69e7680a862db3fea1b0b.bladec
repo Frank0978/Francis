@@ -12,12 +12,12 @@
  text-align:center;
  }
  </style>  
- <title>Juego del Caballo</title>
+ <title>Salto del Caballo</title>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <script src="archivos/move.js"></script>
  </head>
  <body>
- <h2>Juego del Caballo</h2>
+ <h2>Salto del Caballo</h2>
  <div id="mensaje"></div>
  <?php echo $this->yieldContent('content'); ?>
  </body>

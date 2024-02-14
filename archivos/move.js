@@ -52,4 +52,3 @@ function checkPosition(e) {
 $(document).ready(function () {
     $('table').click(checkPosition); // Establish a handler to run on all elements components of table
 });
-

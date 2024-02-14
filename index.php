@@ -19,19 +19,8 @@ define('IA', 'archivos/IA.jpg');
 define('FONDO', 'archivos/fondo.jpg');
 define('RUTAS', array(FONDO, PLAYER, IA));
 
-// Variable de sesión para reiniciar el juego
-if (isset($_SESSION['restart']) && $_SESSION['restart']) {
-    // Limpiar las variables de sesión para el nuevo juego
-    unset($_SESSION['restart']);
-    unset($_SESSION['jugador']);
-    unset($_SESSION['ia']);
-    // Redirigir al script principal
-    header("Location: {$_SERVER['PHP_SELF']}");
-    exit();
-}
-
 if (empty($_POST)) {
-    //Se crea el tablero, se colocan las fichas y se envia al tablero para mostrar e iniciar el juego.
+    //Se cre el tablero, se colocan las fichas y se envia al tablero para mostrar e inciar el juego.//
     $tableroYfichas = introducirFichas();
     $_SESSION['jugador'] = $tableroYfichas[1];
     $_SESSION['ia'] = $tableroYfichas[2];
@@ -50,26 +39,26 @@ if (empty($_POST)) {
         if ($click === $ia) {
             $result = array('clickJ' => $click,
                 'posicionAnteriorIA' => $ia,
-                'posicionAnteriorJ' => $jugador,
-                'rutaImg' => RUTAS,
+                'posicionAnteriorJ' => $jugador, 
+                'rutaImg' => RUTAS, 
                 'gameRes' => 0);
         } else {
-            //Se comprueba si el jugador esta en el rango de la IA y genera la victoria
+            //Se comprueba si el jugador esta en el rango de la IA y genera la victoria//
             for ($i = 0; $i < count($posPosiblesIA); $i++) {
                 if ($posPosiblesIA[$i] === $click) {
                     $result = array(
                         'clickIA' => $posPosiblesIA[$i],
                         'posicionAnteriorJ' => $jugador,
                         'posicionAnteriorIA' => $ia,
-                        'rutaImg' => RUTAS,
+                        'rutaImg' => RUTAS, 
                         'gameRes' => 1);
                     break;
                 }
             }
         }
         if (!isset($result)) {
-            // Se manda ambos movimientos de fichas, por si no se han encontrado
-            $numAleatorio = random_int(0, (sizeof($posPosiblesIA) - 1));
+            // Se manda ambos movimientos de fichas, por si no se han encontrado//
+            $numAleatorio = random_int(0, (sizeof($posPosiblesIA)-1));
             $clickIA = $posPosiblesIA[$numAleatorio];
             $result = array(
                 'click' => $click,
@@ -86,4 +75,5 @@ if (empty($_POST)) {
     header('Content-type: application/json');
     echo json_encode($result);
 }
+
 ?>

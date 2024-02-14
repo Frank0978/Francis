@@ -20,7 +20,7 @@ define('FONDO', 'archivos/fondo.jpg');
 define('RUTAS', array(FONDO, PLAYER, IA));
 
 if (empty($_POST)) {
-    //creamos tablero, ponemos fichas y enviamos el tablero a mostrar para comenzar el juego.
+    //Se cre el tablero, se colocan las fichas y se envia al tablero para mostrar e inciar el juego.//
     $tableroYfichas = introducirFichas();
     $_SESSION['jugador'] = $tableroYfichas[1];
     $_SESSION['ia'] = $tableroYfichas[2];
@@ -43,7 +43,7 @@ if (empty($_POST)) {
                 'rutaImg' => RUTAS, 
                 'gameRes' => 0);
         } else {
-            //comprobamos si el jugador esta en el rango de la IA y se procede a la victoria
+            //Se comprueba si el jugador esta en el rango de la IA y genera la victoria//
             for ($i = 0; $i < count($posPosiblesIA); $i++) {
                 if ($posPosiblesIA[$i] === $click) {
                     $result = array(
@@ -57,7 +57,7 @@ if (empty($_POST)) {
             }
         }
         if (!isset($result)) {
-            // Mandamos ambos movimientos si no se han comido
+            // Se manda ambos movimientos de fichas, por si no se han encontrado//
             $numAleatorio = random_int(0, (sizeof($posPosiblesIA)-1));
             $clickIA = $posPosiblesIA[$numAleatorio];
             $result = array(

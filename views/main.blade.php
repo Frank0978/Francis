@@ -19,6 +19,7 @@
     <body>
         <h2>Salto del Caballo</h2>
         <div id="mensaje"></div>
+        <a href="index.php">Reiniciar Juego</a>
         @yield('content')
     </body>
 </html>

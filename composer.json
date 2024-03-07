@@ -1,12 +1,12 @@
 {
-    "name": "terri/francis",
+    "name": "terri/examen",
     "type": "project",
     "require": {
         "eftec/bladeone": "^4.11"
     },
     "autoload": {
         "psr-4": {
-            "Terri\\Francis\\": "src/"
+            "Terri\\Examen\\": "src/"
         }
     },
     "authors": [
